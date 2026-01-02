@@ -3,8 +3,6 @@
 {{ $ctf := where .Site.RegularPages "Section" "ctf" }}
 {{ $projects := where .Site.RegularPages "Section" "projects" }}
 {{ $pentest := where .Site.RegularPages "Section" "pentest-notes" }}
-{{ $pentestCherry := where $pentest "Params.source" "cherrytree" }}
-{{ $pentestKeep := where $pentest "Params.source" "keepnote" }}
 {{ $updates := where .Site.RegularPages "Section" "in" (slice "labs" "ctf" "projects") }}
 <section class="hero">
   <div class="container hero-inner">
@@ -69,27 +67,49 @@
   <div class="container">
     <div class="section-header">
       <h2>Pentest Notes</h2>
-      <p>Structured notes pulled from my live CherryTree knowledge base plus a legacy KeepNote archive.</p>
+      <p>Unified notes across recon, exploitation, post-exploitation, and tooling.</p>
     </div>
     <div class="card-grid">
       <article class="card">
         <div class="card-body">
-          <p class="eyebrow">Active</p>
-          <h3><a href="/pentest-notes/cherrytree/">CherryTree Notes</a></h3>
-          <p>Short explanations and screenshots for techniques and tooling.</p>
-          <div class="meta">
-            <span class="meta-item">{{ len $pentestCherry }} notes</span>
-          </div>
+          <p class="eyebrow">Recon</p>
+          <h3><a href="/pentest-notes/recon/">Recon & Footprinting</a></h3>
+          <p>Information gathering, services, and baseline recon flows.</p>
         </div>
       </article>
       <article class="card">
         <div class="card-body">
-          <p class="eyebrow">Archive</p>
-          <h3><a href="/pentest-notes/keepnote/">KeepNote Archive</a></h3>
-          <p>Older learning notes preserved for historical reference.</p>
-          <div class="meta">
-            <span class="meta-item">{{ len $pentestKeep }} notes</span>
-          </div>
+          <p class="eyebrow">Web</p>
+          <h3><a href="/pentest-notes/web/">Web Attacks</a></h3>
+          <p>XSS, SQLi, SSRF, CSRF, fuzzing, and more.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <p class="eyebrow">Network</p>
+          <h3><a href="/pentest-notes/network/">Network Attacks</a></h3>
+          <p>SMB, hash attacks, and core network techniques.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <p class="eyebrow">Passwords</p>
+          <h3><a href="/pentest-notes/passwords/">Password Attacks</a></h3>
+          <p>Credential access, cracking, and vault extraction.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <p class="eyebrow">Post</p>
+          <h3><a href="/pentest-notes/post-exploitation/">Post-Exploitation</a></h3>
+          <p>Token abuse, UAC bypass, and privilege escalation.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <p class="eyebrow">Scanning</p>
+          <h3><a href="/pentest-notes/scanning/">Scanning</a></h3>
+          <p>Nmap and vulnerability scanning workflows.</p>
         </div>
       </article>
     </div>
