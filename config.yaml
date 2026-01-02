@@ -19,6 +19,9 @@ menu:
     - name: "Pentest Notes"
       url: "/pentest-notes/"
       weight: 35
+    - name: "Search"
+      url: "/search/"
+      weight: 37
     - name: "Projects"
       url: "/projects/"
       weight: 40
@@ -47,3 +50,9 @@ permalinks:
 taxonomies:
   tag: "tags"
   tool: "tools"
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"

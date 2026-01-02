@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>{{ .Title }}</h1>
+      {{ if .Content }}<div class="section-lede">{{ .Content }}</div>{{ end }}
+    </div>
+    <div class="search-panel">
+      <label class="search-label" for="search-input">Search</label>
+      <input id="search-input" class="search-input" type="search" placeholder="Search notes, tools, labs..." autocomplete="off">
+      <label class="search-toggle">
+        <input id="search-filter-notes" class="search-checkbox" type="checkbox">
+        <span>Only Pentest Notes</span>
+      </label>
+      <p class="search-hint">Tip: search by tool name (nmap, sqlmap), technique (SSRF, SMB), or lab title.</p>
+    </div>
+    <div id="search-status" class="search-status">Type at least 2 characters to start searching.</div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</section>
+<script src="/js/search.js" defer></script>
+{{ end }}
