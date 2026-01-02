@@ -1,0 +1,87 @@
+{{ define "main" }}
+{{ $labs := where .Site.RegularPages "Section" "labs" }}
+{{ $ctf := where .Site.RegularPages "Section" "ctf" }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Cyber Security Journal</p>
+      <h1>{{ .Site.Params.tagline }}</h1>
+      <p class="summary">{{ .Site.Params.description }}</p>
+      <div class="hero-actions">
+        <a class="btn" href="/labs/">Browse Labs</a>
+        <a class="btn ghost" href="/ctf/">Browse CTFs</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-grid">
+        <div class="panel-card">
+          <span class="panel-num">{{ len $labs }}</span>
+          <span class="panel-label">Labs</span>
+        </div>
+        <div class="panel-card">
+          <span class="panel-num">{{ len $ctf }}</span>
+          <span class="panel-label">CTF</span>
+        </div>
+        <div class="panel-card">
+          <span class="panel-num">{{ len $projects }}</span>
+          <span class="panel-label">Projects</span>
+        </div>
+      </div>
+      <div class="panel-note">
+        Structured writeups, repeatable steps, and quick references.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Latest Updates</h2>
+      <p>Fresh entries across labs, CTFs, and projects.</p>
+    </div>
+    <div class="card-grid">
+      {{ range first 6 (sort .Site.RegularPages "Date" "desc") }}
+        <article class="card">
+          <div class="card-body">
+            <p class="eyebrow">{{ .Section | title }}</p>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Params.summary | default .Summary }}</p>
+            {{ partial "meta.html" . }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Start Here</h2>
+      <p>Use these sections to browse by type and keep your notes structured.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-body">
+          <h3><a href="/labs/">Labs</a></h3>
+          <p>Hands-on environments, recon flows, and exploitation paths.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <h3><a href="/ctf/">CTF</a></h3>
+          <p>Challenge writeups, flags, and quick references.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <h3><a href="/projects/">Projects</a></h3>
+          <p>Tools, automation, and research notes.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+{{ end }}

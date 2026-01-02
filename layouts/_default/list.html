@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>{{ .Title }}</h1>
+      {{ if .Content }}<div class="section-lede">{{ .Content }}</div>{{ end }}
+    </div>
+    <div class="card-grid">
+      {{ range .Pages.ByDate.Reverse }}
+        <article class="card">
+          <div class="card-body">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <p>{{ .Params.summary | default .Summary }}</p>
+            {{ partial "meta.html" . }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,46 @@
+baseURL: "https://blog.flo.aberger.at/"
+title: "Flo Aberger | Cyber Notes"
+languageCode: "en-us"
+enableRobotsTXT: true
+paginate: 12
+summaryLength: 24
+
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 10
+    - name: "Labs"
+      url: "/labs/"
+      weight: 20
+    - name: "CTF"
+      url: "/ctf/"
+      weight: 30
+    - name: "Projects"
+      url: "/projects/"
+      weight: 40
+    - name: "About"
+      url: "/about/"
+      weight: 50
+
+params:
+  tagline: "Structured writeups for labs, CTFs, and security projects."
+  description: "Personal knowledge base for cyber security labs, CTF writeups, and project notes."
+  author: "Flo Aberger"
+
+markup:
+  highlight:
+    lineNos: true
+    style: "monokai"
+  goldmark:
+    renderer:
+      unsafe: false
+
+permalinks:
+  labs: "/labs/:slug/"
+  ctf: "/ctf/:slug/"
+  projects: "/projects/:slug/"
+
+taxonomies:
+  tag: "tags"
+  tool: "tools"

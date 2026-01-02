@@ -1,0 +1,19 @@
+{{- $date := .Date | time.Format "2006-01-02" -}}
+<div class="meta">
+  <span class="meta-item">{{ $date }}</span>
+  {{ with .Params.platform }}<span class="meta-item">Platform: {{ . }}</span>{{ end }}
+  {{ with .Params.difficulty }}<span class="meta-item">Difficulty: {{ . }}</span>{{ end }}
+  {{ with .Params.status }}<span class="meta-item">Status: {{ . }}</span>{{ end }}
+</div>
+{{ with .Params.tools }}
+  <div class="meta-tags">
+    <span class="meta-label">Tools</span>
+    {{ range . }}<span class="pill">{{ . }}</span>{{ end }}
+  </div>
+{{ end }}
+{{ with .Params.tags }}
+  <div class="meta-tags">
+    <span class="meta-label">Tags</span>
+    {{ range . }}<span class="pill">{{ . }}</span>{{ end }}
+  </div>
+{{ end }}
