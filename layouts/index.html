@@ -2,6 +2,10 @@
 {{ $labs := where .Site.RegularPages "Section" "labs" }}
 {{ $ctf := where .Site.RegularPages "Section" "ctf" }}
 {{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $pentest := where .Site.RegularPages "Section" "pentest-notes" }}
+{{ $pentestCherry := where $pentest "Params.source" "cherrytree" }}
+{{ $pentestKeep := where $pentest "Params.source" "keepnote" }}
+{{ $updates := where .Site.RegularPages "Section" "in" (slice "labs" "ctf" "projects") }}
 <section class="hero">
   <div class="container hero-inner">
     <div class="hero-text">
@@ -11,6 +15,7 @@
       <div class="hero-actions">
         <a class="btn" href="/labs/">Browse Labs</a>
         <a class="btn ghost" href="/ctf/">Browse CTFs</a>
+        <a class="btn ghost" href="/pentest-notes/">Pentest Notes</a>
       </div>
     </div>
     <div class="hero-panel">
@@ -27,6 +32,10 @@
           <span class="panel-num">{{ len $projects }}</span>
           <span class="panel-label">Projects</span>
         </div>
+        <div class="panel-card">
+          <span class="panel-num">{{ len $pentest }}</span>
+          <span class="panel-label">Pentest Notes</span>
+        </div>
       </div>
       <div class="panel-note">
         Structured writeups, repeatable steps, and quick references.
@@ -42,7 +51,7 @@
       <p>Fresh entries across labs, CTFs, and projects.</p>
     </div>
     <div class="card-grid">
-      {{ range first 6 (sort .Site.RegularPages "Date" "desc") }}
+      {{ range first 6 (sort $updates "Date" "desc") }}
         <article class="card">
           <div class="card-body">
             <p class="eyebrow">{{ .Section | title }}</p>
@@ -52,6 +61,37 @@
           </div>
         </article>
       {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Pentest Notes</h2>
+      <p>Structured notes pulled from my live CherryTree knowledge base plus a legacy KeepNote archive.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-body">
+          <p class="eyebrow">Active</p>
+          <h3><a href="/pentest-notes/cherrytree/">CherryTree Notes</a></h3>
+          <p>Short explanations and screenshots for techniques and tooling.</p>
+          <div class="meta">
+            <span class="meta-item">{{ len $pentestCherry }} notes</span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <p class="eyebrow">Archive</p>
+          <h3><a href="/pentest-notes/keepnote/">KeepNote Archive</a></h3>
+          <p>Older learning notes preserved for historical reference.</p>
+          <div class="meta">
+            <span class="meta-item">{{ len $pentestKeep }} notes</span>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -79,6 +119,12 @@
         <div class="card-body">
           <h3><a href="/projects/">Projects</a></h3>
           <p>Tools, automation, and research notes.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <h3><a href="/pentest-notes/">Pentest Notes</a></h3>
+          <p>Techniques, commands, and screenshots from real practice.</p>
         </div>
       </article>
     </div>

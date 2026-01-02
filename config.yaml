@@ -16,6 +16,9 @@ menu:
     - name: "CTF"
       url: "/ctf/"
       weight: 30
+    - name: "Pentest Notes"
+      url: "/pentest-notes/"
+      weight: 35
     - name: "Projects"
       url: "/projects/"
       weight: 40
