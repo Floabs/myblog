@@ -16,6 +16,41 @@ hugo new ctf/forensics-001/index.md
 hugo new projects/home-lab-automation/index.md
 ```
 
+## Pentest notes workflow
+
+Notes live under `content/pentest-notes/` and use page bundles (a folder with an `index.md`).
+
+Add a new note:
+```bash
+hugo new pentest-notes/recon/dns-enum/index.md
+```
+
+Create a new subsection (folder) by adding an `_index.md` in that directory:
+```
+content/pentest-notes/recon/_index.md
+```
+
+Recommended front matter for notes:
+```yaml
+title: "DNS Enumeration"
+summary: "Common DNS enumeration commands and checks."
+tags: ["recon", "dns"]
+```
+
+Command lists render best as tables:
+```markdown
+| Command | Description |
+| --- | --- |
+| `dig axfr <domain> @<ns>` | Attempt zone transfer. |
+```
+
+Ordering and navigation:
+- Use `weight` in section `_index.md` files to control sidebar order.
+- If you rename or move a note, add `aliases` in front matter to keep old links working.
+
+Search:
+- Search indexing is automatic on build; no extra steps.
+
 ## Screenshots
 
 Use page bundles so each entry can keep images locally:
