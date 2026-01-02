@@ -1,19 +1,19 @@
 ---
-title: "E-Paper Auth (Bachelor Thesis)"
+title: "Access Control Platform (E-Paper Auth)"
 date: 2025-01-02
-summary: "User authentication using e-paper QR codes with WebAuthn presence checks and Authentik OIDC."
-tags: ["webauthn", "qr", "epaper", "oidc"]
-tools: ["flask", "node", "authentik", "ngrok", "docker", "webauthn"]
-status: "thesis"
+summary: "Advanced access control platform with Authentik OIDC, WebAuthn presence checks, Stripe subscriptions, and QR-based door validation."
+tags: ["access-control", "webauthn", "qr", "epaper", "oidc", "subscriptions"]
+tools: ["flask", "node", "authentik", "stripe", "docker", "webauthn"]
+status: "in-progress"
 ---
 
 ## Overview
-Authentication flow using QR codes on an e-paper display with WebAuthn presence validation.
+Full access control stack that combines e-paper QR codes, WebAuthn presence, and identity enforcement.
 
 ## Highlights
-- Docker compose stack for backend, controller, Flask app, and QR viewer.
-- WebAuthn presence checks via HTTPS (ngrok for mobile flows).
-- Raspberry Pi Waveshare e-paper setup for QR display.
+- Flask UI, Node backend, controllers, and QR viewers for door flows.
+- Authentik OIDC with group enforcement and WebAuthn presence checks.
+- Stripe-based subscription onboarding with webhook automation.
 
 ## Local Path
-`/opt/bachelor/bachelor_thesisrepo`
+`/opt/bachelor/dev_bachelor_thesisrepo`

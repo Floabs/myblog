@@ -1,7 +1,7 @@
 ---
-title: "Example Project: Home Lab Automation"
+title: "Home Lab Automation"
 date: 2025-01-02
-summary: "Automation notes for lab provisioning and reset workflows."
+summary: "Automation notes for lab provisioning, resets, and snapshots to speed up lab rebuilds."
 tags: ["automation", "infra"]
 tools: ["ansible", "docker"]
 status: "in-progress"
